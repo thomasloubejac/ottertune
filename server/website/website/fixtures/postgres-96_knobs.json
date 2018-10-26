@@ -3242,7 +3242,7 @@
     {
         "fields": {
             "category": "Write-Ahead Log / Checkpoints",
-            "maxval": "36028797002186752",
+            "maxval": "1099511627776",
             "dbms": 1,
             "name": "global.max_wal_size",
             "minval": "33554432",
@@ -3262,7 +3262,7 @@
     {
         "fields": {
             "category": "Resource Usage / Asynchronous Behavior",
-            "maxval": "262143",
+            "maxval": "1000",
             "dbms": 1,
             "name": "global.max_worker_processes",
             "minval": "0",
@@ -3302,7 +3302,7 @@
     {
         "fields": {
             "category": "Write-Ahead Log / Checkpoints",
-            "maxval": "36028797002186752",
+            "maxval": "1099511627776",
             "dbms": 1,
             "name": "global.min_wal_size",
             "minval": "33554432",
@@ -4885,8 +4885,8 @@
             "maxval": "2147475456",
             "dbms": 1,
             "name": "global.wal_buffers",
-            "minval": "-1",
-            "default": "-1",
+            "minval": "8192",
+            "default": "8192",
             "tunable": true,
             "enumvals": null,
             "vartype": "2",

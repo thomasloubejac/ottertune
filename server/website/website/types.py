@@ -219,6 +219,7 @@ class HardwareType(BaseType):
     EC2_D28XLARGE = 56
     EC2_F12XLARGE = 57
     EC2_F116XLARGE = 58
+    FOREMAN = 59
 
     TYPE_NAMES = {
         GENERIC: 'generic',
@@ -279,4 +280,5 @@ class HardwareType(BaseType):
         EC2_D28XLARGE: 'd2.8xlarge',
         EC2_F12XLARGE: 'f1.2xlarge',
         EC2_F116XLARGE: 'f1.16xlarge',
+        FOREMAN: 'foreman'
     }

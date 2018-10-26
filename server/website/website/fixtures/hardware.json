@@ -682,5 +682,17 @@
             "cpu": 64
         }, 
         "model": "website.Hardware"
+    },
+    {
+        "fields": {
+            "additional_specs": "{\"Network Performance\": \"High\", \"Physical Processor\": \"Intel Xeon E5-2680 v2\", \"Clock Speed (GHz)\": \"1.9\", \"Intel AVX\": \"Yes\", \"Intel AVX2\": \"Yes\", \"Intel Turbo\": \"Yes\", \"EBS OPT\": \"Yes\", \"Enhanced Networking\": \"Yes\"}", 
+            "name": "foreman", 
+            "storage": "80", 
+            "storage_type": "SSD", 
+            "memory": 4, 
+            "type": 59, 
+            "cpu": 1
+        }, 
+        "model": "website.Hardware"
     }
 ]

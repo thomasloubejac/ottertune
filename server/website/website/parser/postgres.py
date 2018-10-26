@@ -25,18 +25,19 @@ class PostgresParser(BaseParser):
         self.valid_false_val = ["off", "false", "no", 0]
 
     POSTGRES_BYTES_SYSTEM = [
-        (1024 ** 5, 'PB'),
-        (1024 ** 4, 'TB'),
-        (1024 ** 3, 'GB'),
-        (1024 ** 2, 'MB'),
-        (1024 ** 1, 'kB'),
-        (1024 ** 0, 'B'),
+        (1125899906842624, 'PB'),#(1024 ** 5, 'PB'),#
+        (1099511627776, 'TB'),   #(1024 ** 4, 'TB'),#
+        (1073741824, 'GB'),      #(1024 ** 3, 'GB'),#
+        (1048576, 'MB'),         #(1024 ** 2, 'MB'),#
+        (1024, 'kB'),		 #(1024 ** 1, 'kB'),#
+        (1, 'B'),		 #(1024 ** 0, 'B'),#
+
     ]
 
     POSTGRES_TIME_SYSTEM = [
-        (1000 * 60 * 60 * 24, 'd'),
-        (1000 * 60 * 60, 'h'),
-        (1000 * 60, 'min'),
+        (86400000, 'd'), #(1000*60*60*24
+        (3600000, 'h'),  #(1000*60*60
+        (60000, 'min'),  #(1000*60
         (1000, 's'),
         (1, 'ms'),
     ]
@@ -95,9 +96,12 @@ class PostgresParser(BaseParser):
 
     def format_integer(self, int_value, metadata):
         if metadata.unit != KnobUnitType.OTHER and int_value > 0:
-            if metadata.unit == KnobUnitType.BYTES:
+            if metadata.unit == KnobUnitType.BYTES and metadata.name!="global.shared_buffers":
                 int_value = ConversionUtil.get_human_readable(
                     int_value, PostgresParser.POSTGRES_BYTES_SYSTEM)
+            elif metadata.name == "global.shared_buffers":
+                 #no conversion
+                 int_value=int_value
             elif metadata.unit == KnobUnitType.MILLISECONDS:
                 int_value = ConversionUtil.get_human_readable(
                     int_value, PostgresParser.POSTGRES_TIME_SYSTEM)
